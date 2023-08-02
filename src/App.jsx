@@ -15,7 +15,7 @@ const App = () => {
           {people.map((person) => {
             const { id, name, age, image } = person;
             return (
-              <div key={id} className="person">
+              <div key={id} className="">
                 <div className="person">
                   <img src={image} alt="" className="person" />
                   <div>
@@ -26,13 +26,23 @@ const App = () => {
               </div>
             );
           })}
-          <button
-            type="button"
-            className="btn btn-block"
-            onClick={() => setPeople([])}
-          >
-            Remove All
-          </button>
+          {people.length === 0 ? (
+            <button
+              type="button"
+              className="btn btn-block"
+              onClick={() => setPeople(data)}
+            >
+              Show All
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="btn btn-block"
+              onClick={() => setPeople([])}
+            >
+              Remove All
+            </button>
+          )}
         </div>
       </main>
     </>
